@@ -1,0 +1,146 @@
+.food-manager {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.food-manager-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 20px 25px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.food-manager-header h2 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.food-manager-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  padding: 25px;
+}
+
+.food-form-section,
+.food-list-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.food-form-section h3,
+.food-list-section h3 {
+  font-size: 16px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+.food-list {
+  flex: 1;
+  overflow-y: auto;
+  max-height: 600px;
+}
+
+.food-item {
+  background: #f9f9f9;
+  padding: 12px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.2s ease;
+  border-left: 4px solid var(--secondary-color);
+}
+
+.food-item:hover {
+  background-color: #f0f0f0;
+}
+
+.food-info {
+  flex: 1;
+}
+
+.food-name {
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.food-nutrition {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.food-source {
+  font-size: 11px;
+  color: #999;
+  font-style: italic;
+}
+
+.food-actions {
+  display: flex;
+  gap: 8px;
+  margin-left: 10px;
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.form-actions .btn {
+  flex: 1;
+}
+
+.empty-message {
+  text-align: center;
+  color: #999;
+  padding: 30px 10px;
+  font-size: 14px;
+}
+
+@media (max-width: 1024px) {
+  .food-manager-content {
+    grid-template-columns: 1fr;
+  }
+
+  .food-list {
+    max-height: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .food-manager-content {
+    padding: 15px;
+    gap: 20px;
+  }
+
+  .food-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .food-actions {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 10px;
+  }
+
+  .food-actions .btn {
+    flex: 1;
+  }
+}
