@@ -167,15 +167,3 @@ curl -X POST http://localhost:5000/api/users/register \
 }
 ```
 
----
-
-## 完成！
-
-現在您可以：
-
-1. 啟動後端：`cd backend && npm run dev`
-2. 啟動前端：`cd frontend && npm start`
-3. 訪問應用：http://localhost:3000
-4. 嘗試註冊新用戶並進行測試
-
-祝您使用愉快！🎉

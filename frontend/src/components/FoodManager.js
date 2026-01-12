@@ -65,19 +65,26 @@ export const FoodManager = ({ onFoodAdded }) => {
       return;
     }
 
+    // 移除 carbohydrates，只發送 carbs
+    const { carbohydrates, ...restData } = formData;
+    const submitData = { 
+      ...restData, 
+      carbs: carbohydrates 
+    };
+
     try {
       if (editingId) {
-        await foodApi.updateFood(editingId, formData);
+        await foodApi.updateFood(editingId, submitData);
         setEditingId(null);
       } else {
-        await foodApi.createFood(formData);
+        await foodApi.createFood(submitData);
       }
 
       setFormData({
         name: '',
         calories: '',
         protein: '',
-        carbs: '',
+        carbohydrates: '',
         fat: '',
         servingSize: '100克'
       });

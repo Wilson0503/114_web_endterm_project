@@ -256,37 +256,6 @@ GET    /api/records/stats/day     # 獲取日期統計
 - **授權**: Open Government Data License 1.0
 - **資料來源**: data.gov.tw 食品營養成分資料集
 
-##  測試帳戶
-
-```
-郵箱: test@example.com
-密碼: password123
-```
-
-- **Repository Pattern**: 資料庫操作層封裝
-- **Middleware Pattern**: 統一請求處理
-- **Context API Pattern**: 狀態管理
-- **Component Composition**: 可重用元件
-- **Custom Hooks**: 邏輯復用
-
-詳見: [ARCHITECTURE.md](docs/ARCHITECTURE.md)
-
-##  常見問題
-
-### Q: MongoDB 連線失敗
-A: 確保 MongoDB 已安裝並運行。執行 `mongod` 命令啟動伺服器。
-
-### Q: 前端無法連接後端
-A: 檢查 `.env` 中的 `REACT_APP_API_URL` 是否正確配置。
-
-### Q: Token 過期
-A: Token 有效期為 30 天，過期後重新登入即可。
-
-### Q: 外部 API 查詢失敗
-A: 檢查網路連線和 API 端點可用性。
-- [ ] 端對端測試
-- [ ] 性能優化
-- [ ] 部署配置
 
 ##  部署指南
 
@@ -309,20 +278,5 @@ npm start
 - **後端**: Heroku, Railway, AWS 等應用伺服器
 - **資料庫**: MongoDB Atlas (雲端) 或自行維護
 
-##  許可證
 
-MIT License
 
-##  作者
-
-學生姓名: Wilson Chen
-
-- 郵箱: your.email@example.com
-- GitHub: https://github.com/yourusername
-
-- [台灣食品藥物管理署](https://www.fda.gov.tw/) - 台灣食品資料
-- React, Express, MongoDB 等開源社群
-
----
-
-**最後更新**: 2025 年 1 月 9 日

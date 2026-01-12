@@ -371,28 +371,9 @@ const searchMultipleFoods = async (barcodes) => {
 
 ---
 
-## 7. 未來擴展
-
-### 計畫中的 API
-
-- **MyFitnessPal API** - 整合 MyFitnessPal 食物資料庫
-- **營養計算服務** - 自動計算營養配比
-- **食物推薦引擎** - 基於用戶偏好推薦食物
-- **國際食品資料** - 支援多個國家的食品資料庫
-
-### 擴展建議
-
-1. 實現 Redis 快取層提高性能
-2. 添加 API 速率限制保護
-3. 實現非同步隊列進行批量操作
-4. 添加 GraphQL API 層
-
----
 
 ## 參考資源
 
 - [Open Food Facts API 文件](https://wiki.openfoodfacts.org/API)
 - [TFDA 官方網站](https://www.fda.gov.tw/)
-- [data.gov.tw 開放資料平台](https://data.gov.tw/)
-- [台灣食品營養成分資料集](https://data.gov.tw/dataset/8032)
 

@@ -5,14 +5,17 @@ const { searchOpenFoodFactsByBarcode, searchTFDAFood } = require('../utils/exter
 const createFood = async (req, res) => {
   try {
     // 取得請求資料
-    let { name, brand, servingSize, servingUnit, calories, protein, fat, carbohydrates } = req.body;
+    let { name, servingSize, calories, protein, fat, carbs } = req.body;
+    
+    console.log('Request body:', req.body);
+    console.log('User ID:', req.userId);
 
     // [新增] 自動計算卡路里邏輯
     // 如果沒有提供卡路里，或卡路里為 0，則自動計算
     if (!calories && calories !== 0) {
       // 確保數值為數字，若無則預設為 0
       const p = Number(protein) || 0;
-      const c = Number(carbohydrates) || 0;
+      const c = Number(carbs) || 0;
       const f = Number(fat) || 0;
       
       // 公式：蛋白質*4 + 碳水*4 + 脂肪*9
@@ -22,20 +25,20 @@ const createFood = async (req, res) => {
     // 建立新食物物件 (保持原有的建立邏輯，但使用處理過的 calories)
     const newFood = new Food({
       name,
-      brand,
       servingSize,
-      servingUnit,
       calories, // 這裡會是使用者輸入的或是自動計算的
       protein,
       fat,
-      carbohydrates,
-      isCustom: true,
-      createdBy: req.user._id
+      carbs,
+      source: 'user',
+      createdBy: req.userId
     });
 
+    console.log('New food object:', newFood);
     await newFood.save();
     res.sendSuccess(newFood, '食物已建立', 201);
   } catch (error) {
+    console.error('Create food error:', error);
     res.sendError('建立食物失敗', 500, error);
   }
 };
