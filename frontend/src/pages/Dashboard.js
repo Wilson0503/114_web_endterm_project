@@ -22,7 +22,7 @@ export default function Dashboard() {
     <div className="dashboard">
       <header className="dashboard-header">
         <div className="header-content">
-          <h1>🍎 飲食記錄系統</h1>
+          <h1><img src="/images.png" alt="飲食記錄系統" style={{ height: '32px', marginRight: '10px', verticalAlign: 'middle' }} /> 飲食記錄系統</h1>
           <div className="header-right">
             <span className="user-info">歡迎，{user?.username}！</span>
             <button onClick={logout} className="btn btn-secondary">登出</button>
