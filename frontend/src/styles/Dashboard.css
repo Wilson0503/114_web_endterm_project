@@ -100,29 +100,100 @@
   gap: 30px;
 }
 
+/* 平板端 */
 @media (max-width: 768px) {
   .dashboard-container {
     grid-template-columns: 1fr;
     gap: 20px;
+    padding: 0 15px;
+    margin: 20px auto;
   }
 
   .dashboard-nav {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     position: static;
+    gap: 8px;
+  }
+
+  .nav-item {
+    padding: 12px 15px;
+    font-size: 14px;
   }
 
   .header-content {
     flex-direction: column;
     align-items: flex-start;
+    padding: 0 15px;
   }
 
   .header-right {
     width: 100%;
     justify-content: space-between;
+    gap: 10px;
   }
 
   .header-content h1 {
-    font-size: 24px;
+    font-size: 22px;
+  }
+
+  .user-info {
+    font-size: 13px;
+  }
+
+  .dashboard-header {
+    padding: 15px 0;
+  }
+}
+
+/* 手機端 */
+@media (max-width: 480px) {
+  .dashboard-container {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding: 0 10px;
+    margin: 15px auto;
+  }
+
+  .dashboard-nav {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+  }
+
+  .nav-item {
+    padding: 10px 12px;
+    font-size: 12px;
+    border-radius: 6px;
+  }
+
+  .header-content {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 10px;
+    gap: 12px;
+  }
+
+  .header-right {
+    width: 100%;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .header-content h1 {
+    font-size: 18px;
+    width: 100%;
+  }
+
+  .user-info {
+    font-size: 12px;
+  }
+
+  .dashboard-header {
+    padding: 12px 0;
+  }
+
+  .records-section {
+    gap: 15px;
   }
 }

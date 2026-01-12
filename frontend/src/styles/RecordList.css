@@ -134,14 +134,26 @@
   font-size: 14px;
 }
 
+/* 平板端 */
 @media (max-width: 768px) {
+  .record-list {
+    padding: 15px;
+  }
+
   .list-header {
     flex-direction: column;
     align-items: stretch;
+    gap: 10px;
   }
 
   .date-picker {
     width: 100%;
+  }
+
+  .daily-stats {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-bottom: 20px;
   }
 
   .record-item {
@@ -156,5 +168,100 @@
 
   .record-actions .btn {
     flex: 1;
+  }
+}
+
+/* 手機端 */
+@media (max-width: 480px) {
+  .record-list {
+    padding: 12px;
+    border-radius: 4px;
+  }
+
+  .list-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    margin-bottom: 15px;
+  }
+
+  .list-header h2 {
+    font-size: 16px;
+  }
+
+  .date-picker {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .daily-stats {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+
+  .stat-card {
+    padding: 15px;
+  }
+
+  .stat-label {
+    font-size: 11px;
+  }
+
+  .stat-value {
+    font-size: 24px;
+  }
+
+  .meal-title {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  .record-item {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+    border-radius: 4px;
+  }
+
+  .record-details {
+    width: 100%;
+  }
+
+  .record-name {
+    font-size: 13px;
+  }
+
+  .record-info {
+    font-size: 12px;
+  }
+
+  .record-actions {
+    width: 100%;
+    margin-top: 8px;
+    gap: 6px;
+  }
+
+  .record-actions .btn {
+    flex: 1;
+    padding: 8px 10px;
+    font-size: 11px;
+  }
+
+  .record-edit-form {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .record-edit-form input,
+  .record-edit-form select {
+    width: 100%;
+    padding: 8px;
+    font-size: 13px;
+  }
+
+  .meal-records {
+    gap: 8px;
   }
 }
