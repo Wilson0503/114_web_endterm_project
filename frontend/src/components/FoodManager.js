@@ -7,7 +7,7 @@ export const FoodManager = ({ onFoodAdded }) => {
     name: '',
     calories: '',
     protein: '',
-    carbs: '',
+    carbohydrates: '',
     fat: '',
     servingSize: '100克'
   });
@@ -33,12 +33,26 @@ export const FoodManager = ({ onFoodAdded }) => {
       setLoading(false);
     }
   };
+  // [新增] 監聽營養素變化，自動計算卡路里
+  useEffect(() => {
+    const p = parseFloat(formData.protein) || 0;
+    const c = parseFloat(formData.carbohydrates) || 0; // [修改] 使用 carbohydrates
+    const f = parseFloat(formData.fat) || 0;
 
+    // 只有當有輸入任一營養素時才自動計算
+    if (p > 0 || c > 0 || f > 0) {
+      const calculatedCalories = Math.round((p * 4) + (c * 4) + (f * 9));
+      setFormData(prev => ({
+        ...prev,
+        calories: calculatedCalories
+      }));
+    }
+  }, [formData.protein, formData.carbohydrates, formData.fat]); // 監聽這三個變數
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
-      [name]: ['calories', 'protein', 'carbs', 'fat'].includes(name) ? parseFloat(value) || '' : value
+      [name]: ['calories', 'protein', 'carbohydrates', 'fat'].includes(name) ? parseFloat(value) || '' : value
     }));
   };
 
@@ -84,7 +98,7 @@ export const FoodManager = ({ onFoodAdded }) => {
       name: food.name,
       calories: food.calories,
       protein: food.protein,
-      carbs: food.carbs,
+      carbohydrates: food.carbs || food.carbohydrates,
       fat: food.fat,
       servingSize: food.servingSize
     });
@@ -96,7 +110,7 @@ export const FoodManager = ({ onFoodAdded }) => {
       name: '',
       calories: '',
       protein: '',
-      carbs: '',
+      carbohydrates: '',
       fat: '',
       servingSize: '100克'
     });
@@ -150,9 +164,9 @@ export const FoodManager = ({ onFoodAdded }) => {
                   name="calories"
                   value={formData.calories}
                   onChange={handleChange}
+                  placeholder="輸入營養素可自動計算"  // [新增] 提示文字
                   min="0"
                   step="0.1"
-                  required
                 />
               </div>
 
@@ -183,12 +197,12 @@ export const FoodManager = ({ onFoodAdded }) => {
               </div>
 
               <div className="form-group">
-                <label htmlFor="carbs">碳水化合物 (g)</label>
+                <label htmlFor="carbohydrates">碳水化合物 (g)</label>
                 <input
                   type="number"
-                  id="carbs"
-                  name="carbs"
-                  value={formData.carbs}
+                  id="carbohydrates"
+                  name="carbohydrates"
+                  value={formData.carbohydrates}
                   onChange={handleChange}
                   min="0"
                   step="0.1"
