@@ -2,8 +2,17 @@
 
 ## 環境準備
 
-### 系統需求
-- Node.js v14+ (建議 v16 或更高)
+-### 系統需求
+- Node.js v16+ (建議使用 v18 LTS)
+- 建議使用 `nvm` 管理 Node 版本，例如：
+
+```bash
+# 安裝 nvm (若尚未安裝)
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+# 使用 nvm 安裝並使用 Node 18 LTS
+nvm install 18
+nvm use 18
+```
 - npm v6+ 或 yarn
 - MongoDB v4.4+ (本機或雲端)
 - Git
@@ -19,18 +28,21 @@ npm --version
 
 # 檢查 Git 版本
 git --version
-```
-
----
-
-## 一步步安裝指南
-
-### 步驟 1: 克隆專案
-
 ```bash
-# 方式一：使用 HTTPS
-git clone https://github.com/yourusername/nutrition-tracker.git
-cd nutrition-tracker
+# macOS (使用 Homebrew)
+brew tap mongodb/brew
+brew install mongodb-community
+brew services start mongodb-community
+
+# 建議使用 mongo shell 新版 `mongosh` 進行互動：
+mongosh
+
+# Linux (使用 systemd，服務名稱通常為 mongod)
+sudo systemctl start mongod
+
+# Windows (在 PowerShell 以管理員身份運行)
+net start MongoDB
+```
 
 # 方式二：使用 SSH
 git clone git@github.com:yourusername/nutrition-tracker.git
@@ -406,9 +418,9 @@ npm install <package-name>
 ## 下一步
 
 1. ✅ 啟動後端和前端伺服器
-2. 👤 在應用中建立帳戶
+2. 在應用中建立帳戶
 3. 🍎 添加第一筆飲食記錄
-4. 📊 查看統計資訊
+4. 查看統計資訊
 5. 🔄 測試 CRUD 操作
 
 詳細 API 文件見: [API-SPEC.md](../docs/API-SPEC.md)

@@ -120,7 +120,7 @@ export const FoodManager = ({ onFoodAdded }) => {
   return (
     <div className="food-manager">
       <div className="food-manager-header">
-        <h2>食物管理</h2>
+        <h2><img src="/diet.png" alt="食物管理" style={{ height: '28px', marginRight: '10px', verticalAlign: 'middle' }} />食物管理</h2>
       </div>
 
       {error && <div className="error-message">{error}</div>}

@@ -215,7 +215,7 @@ NODE_ENV=production
 MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/nutrition-tracker?retryWrites=true&w=majority
 
 # 伺服器
-PORT=3000
+PORT=5000  # 建議後端使用 5000，避免與 React 開發伺服器（3000）衝突
 
 # 安全
 JWT_SECRET=your_super_secure_secret_key_that_is_at_least_32_characters_long
@@ -232,9 +232,10 @@ CORS_ORIGIN=https://yourdomain.com
 
 #### 選項 1: Heroku
 
-1. **安裝 Heroku CLI**:
+1. **安裝 Heroku CLI** (macOS 建議使用 Homebrew):
 ```bash
-npm install -g heroku
+brew tap heroku/brew
+brew install heroku
 heroku login
 ```
 

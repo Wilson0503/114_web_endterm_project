@@ -92,7 +92,7 @@ export const RecordList = ({ refreshTrigger }) => {
   return (
     <div className="record-list">
       <div className="list-header">
-        <h2>飲食記錄</h2>
+        <h2><img src="/notes.png" alt="飲食記錄" style={{ height: '28px', marginRight: '10px', verticalAlign: 'middle' }} />飲食記錄</h2>
         <input
           type="date"
           value={selectedDate}

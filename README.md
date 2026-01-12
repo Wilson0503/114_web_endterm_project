@@ -2,7 +2,7 @@
 
 一個完整的全棧網頁應用，幫助使用者追蹤每日飲食和卡路里攝入量。整合了台灣食品資料庫 (TFDA) 和國際食品資料庫 (Open Food Facts) 的 API，讓使用者可以方便地查詢和記錄食物資訊。
 
-## 📸 功能特色
+##  功能特色
 
 - ✅ **用戶認證系統**: 註冊、登入、會話管理
 - ✅ **飲食記錄功能**: 新增、編輯、刪除、查詢飲食記錄
@@ -14,28 +14,19 @@
 - ✅ **美觀界面**: 響應式設計，支援行動設備
 - ✅ **完整的 CRUD 操作**: Create, Read, Update, Delete
 
-## 🛠 技術棧
+##  技術棧
 
 ### 前端
 - **React 18** - UI 框架
-- **React Router DOM** - 路由管理
+## 功能特色
 - **Axios** - HTTP 客戶端
 - **Date-fns** - 日期處理
-- **CSS3** - 樣式設計
-
-### 後端
-- **Node.js** - 執行環境
-- **Express.js** - Web 框架
 - **MongoDB** - NoSQL 資料庫
 - **Mongoose** - ODM 層
-- **JWT** - 身份驗證
-- **bcryptjs** - 密碼加密
 
-### 外部 API
-- **Open Food Facts API** - 國際食品條碼資料
-- **TFDA API** - 台灣食品營養資料
+注意：本專案包含 `backend/data/tfdaFoods.js` 作為本地 TFDA 範例資料，預設會從本地快取查詢台灣食品。如需使用線上 TFDA API，請設定 `TFDA_API_BASE` 並在 `backend/utils/externalApis.js` 啟用線上呼叫。
 
-## 📁 專案結構
+##  專案結構
 
 ```
 nutrition-tracker/
@@ -98,11 +89,7 @@ nutrition-tracker/
 ├── README.md                 # 本檔案
 └── .gitignore
 ```
-
-## 🚀 快速開始
-
-### 系統需求
-- Node.js v14+ 
+- Node.js v16+ (建議 v18 LTS)
 - npm 或 yarn
 - MongoDB (本地或 MongoDB Atlas)
 
@@ -146,7 +133,8 @@ brew services start mongodb-community
 
 # Ubuntu/Debian
 sudo apt-get install mongodb
-sudo systemctl start mongodb
+# 注意：在大多數 Linux 發行版，服務名稱為 mongod，使用以下指令啟動：
+sudo systemctl start mongod
 
 # 或使用 Docker
 docker run -d -p 27017:27017 --name mongodb mongo
@@ -208,7 +196,7 @@ npm start
    - 每日總卡路里統計
    - 按餐型分佈顯示
 
-## 🔐 API 認證
+##  API 認證
 
 所有受保護的端點都需要在 HTTP Header 中提供 JWT token：
 
@@ -218,7 +206,7 @@ Authorization: Bearer <your_jwt_token>
 
 Token 可在登入或註冊後獲取，有效期為 30 天。
 
-## 📝 API 端點
+##  API 端點
 
 ### 用戶管理
 ```
@@ -252,63 +240,38 @@ GET    /api/records/stats/day     # 獲取日期統計
 
 詳細 API 文件見: [API-SPEC.md](docs/API-SPEC.md)
 
-## 🎨 UI 介面預覽
-
-### 登入頁面
 - 使用者友善的登入/註冊界面
 - 漸層背景設計
-- 表單驗證
-
-### 儀表板
 - 側邊欄導航
 - 響應式佈局
-- 實時統計卡片
-
-### 飲食記錄
-- 搜尋食物功能
 - 日期選擇器
 - 餐型分類顯示
-- 編輯/刪除功能
-
-### 食物管理
 - 新增自訂食物表單
 - 食物列表展示
 - 編輯/刪除操作
 
-## 🔗 外部 API 整合
-
-### Open Food Facts
 - **用途**: 按條碼查詢國際商品資訊
 - **端點**: `GET /foods/search/barcode/:barcode`
-- **授權**: 開放使用
-
-### TFDA (台灣食品藥物管理署)
 - **用途**: 查詢台灣食品營養資訊
 - **授權**: Open Government Data License 1.0
 - **資料來源**: data.gov.tw 食品營養成分資料集
 
-## 🧪 測試帳戶
+##  測試帳戶
 
 ```
 郵箱: test@example.com
 密碼: password123
 ```
 
-## 📊 設計模式應用
-
-### 後端
 - **Repository Pattern**: 資料庫操作層封裝
 - **Middleware Pattern**: 統一請求處理
-- **Service Pattern**: 外部 API 服務封裝
-
-### 前端
 - **Context API Pattern**: 狀態管理
 - **Component Composition**: 可重用元件
 - **Custom Hooks**: 邏輯復用
 
 詳見: [ARCHITECTURE.md](docs/ARCHITECTURE.md)
 
-## 🐛 常見問題
+##  常見問題
 
 ### Q: MongoDB 連線失敗
 A: 確保 MongoDB 已安裝並運行。執行 `mongod` 命令啟動伺服器。
@@ -321,20 +284,11 @@ A: Token 有效期為 30 天，過期後重新登入即可。
 
 ### Q: 外部 API 查詢失敗
 A: 檢查網路連線和 API 端點可用性。
-
-## 🚧 開發進度
-
-- [x] 後端 API 開發
-- [x] 前端 UI 開發
-- [x] 用戶認證系統
-- [x] CRUD 功能
-- [x] 外部 API 整合
-- [ ] 單元測試
 - [ ] 端對端測試
 - [ ] 性能優化
 - [ ] 部署配置
 
-## 📦 部署指南
+##  部署指南
 
 ### 本機運行
 
@@ -351,32 +305,22 @@ npm start
 ```
 
 ### 生產部署
-
-前後端分別部署到不同的服務器：
-
 - **前端**: Vercel, Netlify 等靜態主機
 - **後端**: Heroku, Railway, AWS 等應用伺服器
 - **資料庫**: MongoDB Atlas (雲端) 或自行維護
 
-## 📄 許可證
+##  許可證
 
 MIT License
 
-## 👤 作者
+##  作者
 
 學生姓名: Wilson Chen
-
-## 📞 聯絡方式
 
 - 郵箱: your.email@example.com
 - GitHub: https://github.com/yourusername
 
-## 🙏 致謝
-
-感謝以下資源的支持：
-- [Open Food Facts](https://world.openfoodfacts.org/) - 開放食品資料庫
 - [台灣食品藥物管理署](https://www.fda.gov.tw/) - 台灣食品資料
-- [data.gov.tw](https://data.gov.tw/) - 政府開放資料平台
 - React, Express, MongoDB 等開源社群
 
 ---

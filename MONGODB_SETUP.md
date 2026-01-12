@@ -1,15 +1,5 @@
 # MongoDB 設置指南
 
-## 問題
-
-當前 `.env` 配置使用本機 MongoDB (`mongodb://localhost:27017/nutrition-tracker`)，但您的系統上沒有安裝 MongoDB。
-
-## 解決方案
-
-使用免費的 **MongoDB Atlas** 雲端數據庫。
-
----
-
 ## 快速設置 (3 分鐘)
 
 ### 1. 註冊 MongoDB Atlas
@@ -74,6 +64,10 @@ MongoDB 已連接
 伺服器執行在 http://localhost:5000
 ```
 
+**備註（本地 vs 雲端 TFDA）**
+
+本專案包含一份本地的 TFDA 範例資料 `backend/data/tfdaFoods.js`，預設程式會從該本地資料查詢台灣食品。如你想要呼叫線上 TFDA API，請在 `backend/.env` 設定 `TFDA_API_BASE` 並在 `backend/utils/externalApis.js` 中啟用對應的 HTTP 呼叫。
+
 ---
 
 ## 常見問題
@@ -103,7 +97,7 @@ MongoDB 已連接
 
 ---
 
-## 替代方案：本機安裝 MongoDB
+### 替代方案：本機安裝 MongoDB
 
 如果你想使用本機 MongoDB：
 
@@ -117,6 +111,9 @@ brew install mongodb-community
 # 啟動 MongoDB
 brew services start mongodb-community
 
+# 建議使用 mongosh 互動
+mongosh
+
 # 驗證
 brew services list
 ```
@@ -124,14 +121,14 @@ brew services list
 ### Ubuntu/Debian
 
 ```bash
-# 安裝 MongoDB
+# 安裝 MongoDB（請參考官方套件來源以取得較新版本）
 sudo apt-get install mongodb
 
-# 啟動 MongoDB
-sudo systemctl start mongodb
+# 啟動 MongoDB（服務名稱常為 mongod）
+sudo systemctl start mongod
 
 # 驗證
-sudo systemctl status mongodb
+sudo systemctl status mongod
 ```
 
 ### Windows
